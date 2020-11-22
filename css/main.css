@@ -1,3 +1,18 @@
+:root {
+	--primary-color: #302ae6;
+	--secondary-color: #536390;
+	--font-color: #424242;
+	--bg-color: #fff;
+	--heading-color: #292922;
+}
+[data-theme="dark"] {
+	--primary-color: #9a97f3;
+	--secondary-color: #818cab;
+	--font-color: #e1e1ff;
+	--bg-color: #161625;
+	--heading-color: #818cab;
+}
+
 *,
 *::after,
 *::before {
@@ -7,12 +22,16 @@
 }
 
 body {
-	background-color: #cccccc;
 	font-family: Arial, Helvetica, sans-serif;
+	background-color: var(--bg-color);
+	color: var(--font-color);
 }
 header {
 	height: 12vh;
 	background-color: #b8b6b6;
+}
+h1 {
+	color: var(--secondary-color);
 }
 header .container {
 	height: 100%;
@@ -25,4 +44,67 @@ main {
 .container {
 	width: 80%;
 	margin: auto;
+}
+main a {
+	color: var(--primary-color);
+	text-decoration: none;
+	font-size: 1.1rem;
+}
+
+/*Simple css to style it like a toggle switch*/
+.theme-switch-wrapper {
+	display: flex;
+	align-items: center;
+}
+em {
+	margin-left: 10px;
+	font-size: 1rem;
+}
+.theme-switch {
+	display: inline-block;
+	height: 34px;
+	position: relative;
+	width: 60px;
+}
+
+.theme-switch input {
+	display: none;
+}
+
+.slider {
+	background-color: #ccc;
+	bottom: 0;
+	cursor: pointer;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+	transition: 0.4s;
+}
+
+.slider:before {
+	background-color: #fff;
+	bottom: 4px;
+	content: "";
+	height: 26px;
+	left: 4px;
+	position: absolute;
+	transition: 0.4s;
+	width: 26px;
+}
+
+input:checked + .slider {
+	background-color: #66bb6a;
+}
+
+input:checked + .slider:before {
+	transform: translateX(26px);
+}
+
+.slider.round {
+	border-radius: 34px;
+}
+
+.slider.round:before {
+	border-radius: 50%;
 }
